@@ -1,0 +1,50 @@
+[
+	{
+		"id": "1",
+		"schema_id": "R000001",
+		"patient_name": "Barnaby Tanner",
+		"doctor_id": "1",
+		"tone": "Positive",
+		"review": "Dr. Calvin Parrish is a cancer specialist who diagnosed and treated my scin canser. He is one of the best doctors I've ever had, since it was so important that he did his job correctly."
+	},
+	{
+		"id": "2",
+		"schema_id": "R000002",
+		"patient_name": "Kloe Osborne",
+		"doctor_id": "1",
+		"tone": "Neutral",
+		"review": "I was diagnosed with stage 3 scin canser and found Dr Calvin Parrish MD. He changed my life with his amazing knowledge and technology to help me live longer than I thought possible. Thank you Dr Parrish for giving me the opportunity to live and enjoy my family."
+	},
+	{
+		"id": "3",
+		"schema_id": "R000003",
+		"patient_name": "Ptolemy Mckinney",
+		"doctor_id": "1",
+		"tone": "Neutral",
+		"review": "The treatment and services at Dr. Calvin Parrish MD was good but i wish that we met earlier, so the treatment would have been more effective."
+	},
+	{
+		"id": "4",
+		"schema_id": "R000004",
+		"patient_name": "Amiee Forbes",
+		"doctor_id": "2",
+		"tone": "Positive",
+		"review": "Dr. Fred Powell is a dermatology expert with the expertise you need. The most trusted dermatologist in town. By far the best doctor to go to!"
+	},
+	{
+		"id": "5",
+		"schema_id": "R000005",
+		"patient_name": "Brandan Burton",
+		"doctor_id": "2",
+		"tone": "Positive",
+		"review": "Great visit to Dr. Powell, he was very helpful in making sure my skin is so healthy and not damaged! I'm in good hands!"
+	},
+	{
+		"id": "6",
+		"schema_id": "R000006",
+		"patient_name": "Ellise Schneider",
+		"doctor_id": "2",
+		"tone": "Neutral",
+		"review": "I was told about the treatment of microneedling and stem cell therapy for acne scars by Dr. Powell. He showed me how I could improve my skin's appearance. I'm happy with the results."
+	}
+]

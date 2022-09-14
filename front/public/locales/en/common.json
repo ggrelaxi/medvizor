@@ -1,0 +1,105 @@
+{
+	"header": {
+		"en": "EN",
+		"ar": "AR",
+		"button": "I need a concierge doctor",
+		"signUp": "sign up"
+	},
+	"mainPage": {
+		"contentTitle": "All right, why us?",
+		"contentDescription": "We dedicated years of practice and applied our expertise to find the best doctors in your area. Then we thought it is not enough",
+		"tabs": {
+			"tab1-header": "The best professionals",
+			"tab1-content": "Our list of professionals is not very long and <span>only includes the best doctors</span> to make your choice easier",
+			"tab2-header": "Verified by your social circle",
+			"tab2-content": "It’s not uncommon to ask friends to recommend a doctor. On our website you can find out how many people in <span>your social circle recommend</span> a particular doctor. You can also leave your own recommendations anonymously.",
+			"tab3-header": "Accelerated appointment",
+			"tab3-content": "If you have an emergency, but the doctor does not have availability for weeks, you can request an <span>urgent appointment</span> and we will choose a convenient time for you",
+			"tab4-header": "Direct contact with a doctor",
+			"tab4-content": "There is no need to wait and pay for a doctor's appointment if you need to clarify just a few details. You can simply send a message to a doctor and ask your question directly getting a <span>quick and professional answer</span>.",
+			"tab5-header": "Personal doctor for your family",
+			"tab5-content": "<span>The concierge doctor will take care of that and affordable way</span> to stay healthy. You don't need to collect your medical history or look for a speciality doctor by yourself, the concierge doctor will do it for you and not only that",
+			"list-item1": "24/7 contact with a professional who knows your medical history",
+			"list-item2": "Constant monitoring your health condition",
+			"list-item3": "Professional assistance in finding a speciality doctor",
+			"list-item4": "Help with any health issues that you have"
+		},
+		"searchForm": {
+			"header": "Find a Best",
+			"doctor": "Doctor",
+			"clinic": "Clinic",
+			"search-doctor-placeholder": "Speciality, condition",
+			"search-clinic-placeholder": "Specialization",
+			"search-button": "Search"
+		}
+	},
+	"clinicSearchPage": {
+		"searchButtonText": "Search",
+		"speciality-placeholder": "Speciality",
+		"insurance-placeholder": "Insurance",
+		"chooseDoctor": "Choose a doctor",
+		"callClinic": "Call the clinic",
+		"askClinic": "Ask the clinic"
+	},
+	"askForm": {
+		"header": "Ask the doctor a question",
+		"nameLabel": "First and LastName",
+		"namePlaceholder": "Put your personal data",
+		"phoneLabel": "Phone number",
+		"phonePlaceholder": "Put your phone",
+		"questionLabel": "Description of a question",
+		"questionPlaceholder": "Put your question",
+		"submitText": "Submit"
+	},
+	"singleClinicPage": {
+		"buttonAdditionalText": "You can ask about the procedures or specific treatment you are interested in at this clinic",
+		"treatment": "Treatment Focus",
+		"insurance": "Insurance Accepted",
+		"insuranceDescription": "Please verify your coverage with the provider's office directly when scheduling an appointment",
+		"doctorListHeader": "The Best Doctors of this clinic"
+	},
+	"common": {
+		"backToResult": "To the results"
+	},
+	"doctorSearchPage": {
+		"searchButtonText": "Search",
+		"specialityPlaceholder": "Speciality, condition",
+		"priceMinPlaceholder": "Price from",
+		"priceMaxPlaceholder": "to",
+		"visitDatePlaceholder": "Date for visit",
+		"visitTypePlaceholder": "Type of visit",
+		"onlineVisit": "Online",
+		"offlineVisit": "Offline",
+		"english": "English",
+		"spanish": "Spanish",
+		"german": "German",
+		"arabic": "Arabic",
+		"onlineBooking": "Online booking",
+		"languagePlaceholder": "Language",
+		"moreFilters": "More Filters",
+		"medicalCondition": "Medical Condition",
+		"medicalConditionPlaceholder": "Acne, Atopic Dermatitis",
+		"gender": "Gender",
+		"genderPlaceholder": "Female, Male",
+		"memberOfAssociation": "Member of an Association",
+		"associationYes": "Yes",
+		"associationNo": "No",
+		"noResult": "No results for selected criteria",
+		"doctor": "doctor",
+		"doctors": "doctors",
+		"bookAppointment": "Book un appointment",
+		"callDoctor": "Call the doctor",
+		"askDoctor": "Ask the doctor",
+		"doctorLanguages": "English, Spanish"
+	},
+	"doctorSinglePage": {
+		"about": "About",
+		"treatmentHeader": "Treatment Focus",
+		"education": "Education",
+		"license": "Certifications & Licensure",
+		"insurance": "Insurance Accepted",
+		"insuranceDescription": "Please verify your coverage with the provider's office directly when scheduling an appointment",
+		"reviewsHeader": "Reviews",
+		"reviewsDescription": "We always try to contact our patients in order to get their feedback on the clinic and the doctor & clinic and would give us a review"
+	}
+}

@@ -1,0 +1,19 @@
+[
+	{
+		"id": 1,
+		"schema_id": "D000001",
+		"name": "Calvin Parrish, MD",
+		"about": "Dr. Parrish is a board certified dermatologist and an expert in the treatment and prevention of skin cancer. Dr. Parrish has been practicing dermatology for over 25 years and his clinical expertise, passionate dedication to patient care, and high level of integrity have made him one of the most renowned doctors in the professional community",
+		"genger": "male",
+		"practice": "25+ years",
+		"price": 350,
+		"specialization": "Dermatology",
+		"deseases": "Acne; Acne scarring; Actinic keratosis; Age spots (liver spots); Atopic dermatitis (eczema); Autoimmune diseases; Basal cell carcinoma; Bullous pemphigoid; Burning mouth syndrome ;Calciphylaxis ;Cancer; Canker sore; Cellulitis ; Chronic hives; Connective tissue disorders; Contact dermatitis; Cutaneous lupus; Cutaneous T-cell lymphoma; Dermatitis; Dermatomyositis; Ehlers-Danlos syndrome; Epidermolysis bullosa; Erythromelalgia; Genetic skin disorders; Graft-versus-host disease; Granuloma annulare; Graves' disease; Hair diseases; Hair loss; Hemangioma; Hidradenitis suppurativa; Hypereosinophilic syndrome; Hyperhidrosis ;Itchy skin (pruritus); Keloid scar; Klippel-Trenaunay syndrome; Lichen planus; Lip cancer ;Lymphoma; Melanoma; Merkel cell carcinoma; Moles; Morphea; Mucous membrane diseases; Nail diseases; Nephrogenic systemic fibrosis; Neurofibromatosis; Nonmelanoma skin cancer; Oral lichen planus; Panniculitis ;Pemphigus; Pigmentation disorders; Polymorphous light eruption; Primary biliary cholangitis; Psoriasis; Pyoderma gangrenosum; Rosacea; Scleroderma; Skin cancer; Skin infections; Spider veins; Squamous cell carcinoma of the skin; Stevens-Johnson syndrome; Subcutaneous fat diseases; Sun allergy; Varicose veins; Vascular anomalies; Vasculitis;Vitiligo; Vulvar skin disorders; Wrinkles",
+		"clinic": "Advent Hospital Orlando",
+		"education": "Johns Hopkins University",
+		"licence": "Florida State Medical License. Active through 2023",
+		"sertificate": "American Board of Dermatology Certified in Dermatology",
+		"associtaion": "American Medical Association [AMA], American Academy of Dermatology, American Board of Radiology, Centers for Disease Control, National Council on the Aging, National Cancer Institute, National Institutes of Health, National Institute on Aging",
+		"available_from": "09.17.2022"
+	}
+]

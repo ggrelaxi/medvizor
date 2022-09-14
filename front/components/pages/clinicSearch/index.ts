@@ -1,0 +1,1 @@
+export { ClinicSearch } from './ClinicSearch'

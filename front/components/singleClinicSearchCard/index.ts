@@ -1,0 +1,1 @@
+export { ClinicListCard } from "./SingleClinicSearchCard";
