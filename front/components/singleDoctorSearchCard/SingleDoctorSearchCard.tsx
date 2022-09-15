@@ -2,6 +2,8 @@ import { SingleDoctorContainer } from "./single-doctor-search-card.styles";
 import { Button } from "../ui-kit/button";
 import { useTranslation } from "next-i18next";
 import Router, { useRouter } from "next/router";
+import { useState } from "react";
+import { AskForm } from "../askForm";
 
 export const SingleDoctorSearchCard = (props: any) => {
 	const { t } = useTranslation();
@@ -17,6 +19,7 @@ export const SingleDoctorSearchCard = (props: any) => {
 		clinicAddress,
 		clinicName,
 	} = props;
+	const [askFormIsActive, setAskFormIsActive] = useState(false);
 
 	const goToClickHandler = (id: number) => {
 		Router.push({
@@ -94,11 +97,19 @@ export const SingleDoctorSearchCard = (props: any) => {
 					text={t("doctorSearchPage.askDoctor")}
 					size="s"
 					type="phone"
-					onClick={() => {}}
+					onClick={() => {
+						setAskFormIsActive(true);
+					}}
 					width="276"
 					icon="chat"
 				/>
 			</div>
+			{askFormIsActive && (
+				<AskForm
+					close={() => setAskFormIsActive(false)}
+					type={"doctor"}
+				/>
+			)}
 		</SingleDoctorContainer>
 	);
 };

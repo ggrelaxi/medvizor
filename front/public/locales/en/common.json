@@ -42,13 +42,26 @@
 		"askClinic": "Ask the clinic"
 	},
 	"askForm": {
-		"header": "Ask the doctor a question",
-		"nameLabel": "First and LastName",
+		"doctorHeader": "Ask the doctor a question",
+		"clinicHeader": "Ask the clinic a question",
+		"nameLabel": "First and Last Name",
 		"namePlaceholder": "Put your personal data",
 		"phoneLabel": "Phone number",
 		"phonePlaceholder": "Put your phone",
 		"questionLabel": "Description of a question",
 		"questionPlaceholder": "Put your question",
+		"submitText": "Submit",
+		"bottomDescription": "We will contact you to confirm your question"
+	},
+
+	"requestForm": {
+		"header": "Subscription request",
+		"nameLabel": "First and Last Name",
+		"namePlaceholder": "Put your personal data",
+		"phoneLabel": "Phone number",
+		"phonePlaceholder": "Put your phone",
+		"optionsLabel": "Description of your options",
+		"optionsPlaceholder": "Put your options ",
 		"submitText": "Submit"
 	},
 	"singleClinicPage": {
@@ -101,5 +114,57 @@
 		"insuranceDescription": "Please verify your coverage with the provider's office directly when scheduling an appointment",
 		"reviewsHeader": "Reviews",
 		"reviewsDescription": "We always try to contact our patients in order to get their feedback on the clinic and the doctor & clinic and would give us a review"
+	},
+	"tariffsPage": {
+		"choosePlan": "Choose your plan",
+		"annually": "Annually",
+		"save": "save 10%",
+		"monthly": "Monthly",
+		"mounth": "mounth",
+		"requestButton": "Send a request",
+		"marker": "Popular choice",
+		"separator": "or",
+		"pickRequestHeader": "Request custom plan",
+		"basic": {
+			"header": "Basic",
+			"line1": "Supervised by a certified doctor",
+			"line2": "Help in finding the necessary doctor, diagnostics or tests",
+			"line3": "2 hours of free consultations per month + 1 hour when adding a family member",
+			"line4": "24/7 professional consultation",
+			"line5": "10% discount on partner diagnostic services",
+			"mainPrice": "135",
+			"secondPrice": "22 for a family member "
+		},
+		"advanced": {
+			"header": "Advanced",
+			"line1": "Supervised by a doctor MD",
+			"line2": "Complete organization and preparation for the necessary doctor, diagnostics or tests",
+			"line3": "2 hours of free consultations per month + 1 hour when adding a family member",
+			"line4": "24/7 professional consultation + direct contact with a certified doctor",
+			"line5": "20% discount on partner diagnostic services",
+			"mainPrice": "225",
+			"secondPrice": "36 for a family member "
+		},
+		"pro": {
+			"header": "Pro",
+			"line1": "Comprehensive treatment with a doctor MD, including diagnosis and analysis",
+			"line2": "2 hours of free consultations per month + 1 hour when adding a family member",
+			"line3": "24/7 professional consultation + direct contact with a Doctor of medicine",
+			"line4": "25% discount on partner diagnostic services",
+			"mainPrice": "675",
+			"secondPrice": "180 for a family member"
+		},
+		"requestText": {
+			"lookingFor": "I’m looking for concierge doctor",
+			"for": "for",
+			"forWhomPlaceholder": "select for whom",
+			"iAm": "I am in my",
+			"agesPlaceholder": "select you age",
+			"deseases": "deseases: ",
+			"deseasesPlaceholder": "no one",
+			"callText": "Please call me",
+			"at": "at",
+			"withOptions": "with your options"
+		}
 	}
 }

@@ -201,7 +201,7 @@ export const DoctorSearch = () => {
 				{doctors.length > 0 && (
 					<>
 						{doctors.map((doctor) => {
-							console.log(doctor, 23232323);
+							
 							const {
 								logo_url,
 								name,

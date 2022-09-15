@@ -159,7 +159,10 @@ export const ClinicListCard = (props: any) => {
 				)}
 			</div>
 			{askFormIsActive && (
-				<AskForm close={() => setAskFormIsActive(false)} />
+				<AskForm
+					close={() => setAskFormIsActive(false)}
+					type={"clinic"}
+				/>
 			)}
 		</ClinicCardListContainer>
 	);

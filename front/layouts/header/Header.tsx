@@ -4,9 +4,14 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Link from "next/link";
 import { Button } from "../../components/ui-kit/button";
+import Router from "next/router";
 
 export const Header = () => {
 	const { t } = useTranslation();
+
+	const goToTariffsPage = () => {
+		Router.push({ pathname: "/tariffs" });
+	};
 
 	return (
 		<HeaderContainer>
@@ -23,7 +28,7 @@ export const Header = () => {
 					type="opacity"
 					size="m"
 					padding="12px 25px"
-					onClick={() => {}}
+					onClick={goToTariffsPage}
 				></Button>
 			</div>
 			<div>

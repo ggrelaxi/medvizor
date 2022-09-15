@@ -23,7 +23,7 @@ export const Doctor = (props: any) => {
 		reviews,
 	} = props.doctor;
 	const { t } = useTranslation();
-	console.log(props.doctor);
+
 	return (
 		<DoctorContainer>
 			<div className="go-back">

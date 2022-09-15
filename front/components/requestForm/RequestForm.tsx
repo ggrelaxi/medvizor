@@ -1,54 +1,49 @@
 import { useState } from "react";
 import { useTranslation } from "next-i18next";
-import { AskFormContainer } from "./ask-form.styles";
 import { Button } from "../ui-kit/button";
+import { RequestFormContainer } from "./request-form.styles";
 
-type AskFormType = "clinic" | "doctor";
-
-interface IAskForm {
+interface IRequestForm {
 	close: () => void;
-	type: AskFormType;
+	areaData?: string;
+	phone?: string;
 }
 
-export const AskForm = ({ close, type }: IAskForm) => {
+export const RequestForm = ({ close, areaData, phone }: IRequestForm) => {
 	const { t } = useTranslation();
 	const [nameValue, setNameValue] = useState("");
-	const [phoneValue, setPhoneValue] = useState("");
-	const [questionValue, setQuestionValue] = useState("");
+	const [phoneValue, setPhoneValue] = useState(phone || "");
+	const [questionValue, setQuestionValue] = useState(areaData || "");
 
 	return (
-		<AskFormContainer>
+		<RequestFormContainer>
 			<div className="form-container">
-				<h3>
-					{type === "clinic"
-						? `${t("askForm.clinicHeader")}`
-						: `${t("askForm.doctorHeader")}`}
-				</h3>
+				<h3>{t("requestForm.header")}</h3>
 				<div className="fio-container">
-					<label htmlFor="name">{t("askForm.nameLabel")}</label>
+					<label htmlFor="name">{t("requestForm.nameLabel")}</label>
 					<input
 						value={nameValue}
-						placeholder={t("askForm.namePlaceholder")}
+						placeholder={t("requestForm.namePlaceholder")}
 						type="text"
 						id="name"
 						onChange={(e) => setNameValue(e.target.value)}
 					/>
 				</div>
 				<div className="phone-container">
-					<label htmlFor="phone">{t("askForm.phoneLabel")}</label>
+					<label htmlFor="phone">{t("requestForm.phoneLabel")}</label>
 					<input
 						type="phone"
 						value={phoneValue}
 						id="phone"
-						placeholder={t("askForm.phonePlaceholder")}
+						placeholder={t("requestForm.phonePlaceholder")}
 						onChange={(e) => setPhoneValue(e.target.value)}
 					/>
 				</div>
 				<div className="question-container">
-					<label>{t("askForm.questionLabel")}</label>
+					<label>{t("requestForm.optionsLabel")}</label>
 					<textarea
 						value={questionValue}
-						placeholder={t("askForm.questionPlaceholder")}
+						placeholder={t("requestForm.optionsPlaceholder")}
 						onChange={(e) => setQuestionValue(e.target.value)}
 						rows={4}
 					/>
@@ -56,15 +51,12 @@ export const AskForm = ({ close, type }: IAskForm) => {
 				<Button
 					type="orange"
 					size="m"
-					text={t("askForm.submitText")}
+					text={t("requestForm.submitText")}
 					onClick={() => {}}
 					width="400"
 				/>
 				<div className="close" onClick={close} />
-				<div className="bottom-description">
-					{t("askForm.bottomDescription")}
-				</div>
 			</div>
-		</AskFormContainer>
+		</RequestFormContainer>
 	);
 };

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const AskFormContainer = styled.div`
+export const RequestFormContainer = styled.div`
 	position: fixed;
 	background: rgba(31, 33, 36, 0.6);
 	backdrop-filter: blur(4px);
@@ -95,13 +95,5 @@ export const AskFormContainer = styled.div`
 			cursor: pointer;
 			padding: 10px;
 		}
-	}
-
-	.bottom-description {
-		margin-top: 10px;
-		text-align: center;
-		font-size: 16px;
-		line-height: 20px;
-		color: #626466;
 	}
 `;
