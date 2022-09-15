@@ -47,7 +47,6 @@ export const getDoctors = (request, response) => {
 		const currentClinic = clinics.filter((clinic) =>
 			clinic.doctors.includes(Number(currentDoctor.id))
 		);
-		console.log(currentClinic);
 		currentDoctor["clinicName"] = currentClinic[0]?.name || "";
 		currentDoctor["clinicAddress"] = currentClinic[0]?.address || "";
 		currentDoctor["insurance"] = currentClinic[0]?.insurance || "";
