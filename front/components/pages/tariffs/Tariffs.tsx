@@ -108,7 +108,7 @@ const requestSelectStyle: StylesConfig<any, false> = {
 		},
 		"& div[class*=indicatorContainer]": {
 			"svg path": {
-				stroke: "red",
+				fill: "red",
 			},
 		},
 	}),
@@ -228,7 +228,7 @@ export const Tariffs = () => {
 			})
 			.finally(() => setIsLoading(false));
 	}, []);
-	console.log(desease);
+
 	return (
 		<TariffsContainer>
 			<div className="top-block">
@@ -334,7 +334,7 @@ export const Tariffs = () => {
 			<div className="request">
 				<h2>{t("tariffsPage.pickRequestHeader")}</h2>
 				<div className="request-picker-container">
-					<p>
+					<div className="request-data">
 						<span>{t("tariffsPage.requestText.lookingFor")}</span>
 						<img
 							className="request-icon"
@@ -398,7 +398,7 @@ export const Tariffs = () => {
 							onChange={phoneChangeHandler}
 						/>
 						<span>{t("tariffsPage.requestText.withOptions")}</span>
-					</p>
+					</div>
 				</div>
 				<Button
 					text={t("tariffsPage.requestButton")}

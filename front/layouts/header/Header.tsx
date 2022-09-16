@@ -5,6 +5,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Link from "next/link";
 import { Button } from "../../components/ui-kit/button";
 import Router from "next/router";
+import { useIsLogin } from "../../hooks/useIsLogin";
 
 export const Header = () => {
 	const { t } = useTranslation();
@@ -12,6 +13,8 @@ export const Header = () => {
 	const goToTariffsPage = () => {
 		Router.push({ pathname: "/tariffs" });
 	};
+
+	const [isLogin, logOut] = useIsLogin();
 
 	return (
 		<HeaderContainer>
@@ -35,9 +38,14 @@ export const Header = () => {
 				<LanguagePicker />
 			</div>
 			<div>
-				<Link href="/contacts">
-					<a href="#">{t("header.signUp")}</a>
-				</Link>
+				{isLogin && (
+					<div className="log-out" onClick={() => logOut()}>{t("header.logOut")}</div>
+				)}
+				{!isLogin && (
+					<Link href="/registration">
+						<a href="#">{t("header.signUp")}</a>
+					</Link>
+				)}
 			</div>
 		</HeaderContainer>
 	);

@@ -169,7 +169,7 @@ export const TariffsContainer = styled.div`
 			margin-bottom: 80px;
 		}
 
-		p {
+		.request-data {
 			display: flex;
 			align-items: center;
 			flex-wrap: wrap;

@@ -10,6 +10,8 @@ import { LocaleTypes } from "../../../types/locale-types";
 import { doctorServises } from "../../../api/doctors-servises";
 import { Loader } from "../../../components/loader";
 import { SingleDoctorSearchCard } from "../../../components/singleDoctorSearchCard";
+import { RecommendedBlock } from "../../recommendedBlock";
+import { useIsLogin } from "../../../hooks/useIsLogin";
 
 export const DoctorSearch = () => {
 	const router = useRouter();
@@ -58,6 +60,7 @@ export const DoctorSearch = () => {
 		association: queryAssociation ? (queryAssociation as string) : "",
 	});
 	const [doctors, setDoctors] = useState([]);
+	const [isLogin] = useIsLogin();
 
 	const searchDoctorsHandler = () => {
 		setIsLoading(true);
@@ -200,8 +203,7 @@ export const DoctorSearch = () => {
 				</div>
 				{doctors.length > 0 && (
 					<>
-						{doctors.map((doctor) => {
-							
+						{doctors.map((doctor, index) => {
 							const {
 								logo_url,
 								name,
@@ -214,16 +216,25 @@ export const DoctorSearch = () => {
 							} = doctor;
 
 							return (
-								<SingleDoctorSearchCard
-									logoUrl={logo_url}
-									name={name}
-									deseases={deseases}
-									practice={practice}
-									price={price}
-									doctorId={id}
-									clinicAddress={clinicAddress}
-									clinicName={clinicName}
-								/>
+								<>
+									<SingleDoctorSearchCard
+										logoUrl={logo_url}
+										name={name}
+										deseases={deseases}
+										practice={practice}
+										price={price}
+										doctorId={id}
+										clinicAddress={clinicAddress}
+										clinicName={clinicName}
+									/>
+									{(index + 1) % 2 === 0 && !isLogin && (
+										<RecommendedBlock
+											text={t(
+												"doctorSearchPage.registerNoticeHeader"
+											)}
+										/>
+									)}
+								</>
 							);
 						})}
 					</>

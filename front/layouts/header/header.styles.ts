@@ -18,6 +18,12 @@ export const HeaderContainer = styled.header`
 		color: #1f2124;
 	}
 
+	.log-out {
+		cursor: pointer;
+		text-transform: uppercase;
+		color: #1f2124;
+	}
+
 	img {
 		cursor: pointer;
 	}

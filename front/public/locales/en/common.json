@@ -3,7 +3,8 @@
 		"en": "EN",
 		"ar": "AR",
 		"button": "I need a concierge doctor",
-		"signUp": "sign up"
+		"signUp": "sign up",
+		"logOut": "log out"
 	},
 	"mainPage": {
 		"contentTitle": "All right, why us?",
@@ -39,7 +40,8 @@
 		"insurance-placeholder": "Insurance",
 		"chooseDoctor": "Choose a doctor",
 		"callClinic": "Call the clinic",
-		"askClinic": "Ask the clinic"
+		"askClinic": "Ask the clinic",
+		"registerNoticeHeader": "Find out which clinic is recommended by your social circle"
 	},
 	"askForm": {
 		"doctorHeader": "Ask the doctor a question",
@@ -72,7 +74,8 @@
 		"doctorListHeader": "The Best Doctors of this clinic"
 	},
 	"common": {
-		"backToResult": "To the results"
+		"backToResult": "To the results",
+		"signUp": "Sign up"
 	},
 	"doctorSearchPage": {
 		"searchButtonText": "Search",
@@ -103,7 +106,8 @@
 		"bookAppointment": "Book an appointment",
 		"callDoctor": "Call the doctor",
 		"askDoctor": "Ask the doctor",
-		"doctorLanguages": "English, Spanish"
+		"doctorLanguages": "English, Spanish",
+		"registerNoticeHeader": "Find out which doctor is recommended by your social circle"
 	},
 	"doctorSinglePage": {
 		"about": "About",
@@ -166,5 +170,15 @@
 			"at": "at",
 			"withOptions": "with your options"
 		}
+	},
+	"registrationPage": {
+		"header": "Sing up",
+		"phonePlaceholder": "Enter your phone",
+		"passwordPlaceholder": "Password",
+		"confirmationPlaceholder": "Confirmation",
+		"passwordError": "Password does not match",
+		"phoneError": "Phone number is required",
+		"buttonText": "Sign up",
+		"description": "By continuing, you agree to Medadviser's <span>Terms of Service</span> and acknowledge Medadviser's <span>Privacy Policy</span>"
 	}
 }

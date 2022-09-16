@@ -9,6 +9,8 @@ import { LocaleTypes } from "../../../types/locale-types";
 import { clinicServises } from "../../../api/clinics-servises";
 import { ClinicListCard } from "../../singleClinicSearchCard";
 import { ClinicFilters } from "../../../types/clinic-types";
+import { RecommendedBlock } from "../../recommendedBlock";
+import { useIsLogin } from "../../../hooks/useIsLogin";
 
 export const ClinicSearch = () => {
 	const router = useRouter();
@@ -31,6 +33,7 @@ export const ClinicSearch = () => {
 	const [listClinicName, setListClinicName] = useState(
 		querySpeciality ? (querySpeciality as string) : ""
 	);
+	const [isLogin] = useIsLogin();
 
 	const searchClinicHandler = () => {
 		setIsLoading(true);
@@ -118,7 +121,7 @@ export const ClinicSearch = () => {
 			</div>
 			<div className="clinic-list">
 				{clinics.length > 0 &&
-					clinics.map((clinic) => {
+					clinics.map((clinic, index) => {
 						const {
 							logo_url,
 							name,
@@ -130,17 +133,26 @@ export const ClinicSearch = () => {
 							id,
 						} = clinic;
 						return (
-							<ClinicListCard
-								logoUrl={logo_url}
-								name={name}
-								deseases={deseases}
-								address={address}
-								languages={languages}
-								payments={payment_method}
-								workHours={work_hours}
-								clinicId={id}
-								key={`${name}-${id}`}
-							/>
+							<>
+								<ClinicListCard
+									logoUrl={logo_url}
+									name={name}
+									deseases={deseases}
+									address={address}
+									languages={languages}
+									payments={payment_method}
+									workHours={work_hours}
+									clinicId={id}
+									key={`${name}-${id}`}
+								/>
+								{(index + 1) % 2 === 0 && !isLogin && (
+									<RecommendedBlock
+										text={t(
+											"clinicSearchPage.registerNoticeHeader"
+										)}
+									/>
+								)}
+							</>
 						);
 					})}
 			</div>
