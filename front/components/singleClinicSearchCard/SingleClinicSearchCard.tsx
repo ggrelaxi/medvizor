@@ -1,9 +1,14 @@
 import { useState } from "react";
-import { ClinicCardListContainer } from "./single-clinic-search-card.styles";
+import {
+	ClinicCardListContainer,
+	AdditionData,
+} from "./single-clinic-search-card.styles";
 import { Button } from "../ui-kit/button";
 import { useTranslation } from "next-i18next";
 import { AskForm } from "../askForm/AskForm";
 import Router, { useRouter } from "next/router";
+import { getRandomNumber } from "../../utils/random-range";
+import { useIsLogin } from "../../hooks/useIsLogin";
 
 interface Language {
 	[key: string]: string;
@@ -81,12 +86,15 @@ export const ClinicListCard = (props: any) => {
 		isSingleClinic = false,
 	} = props;
 	const [askFormIsActive, setAskFormIsActive] = useState(false);
+	const [isLogin] = useIsLogin();
 
 	const goToClickHandler = (id: number) => {
 		Router.push({
 			pathname: `/clinic/${id}`,
 		});
 	};
+
+	const isCardWithNotice = (Number(clinicId) + 1) % 2 === 0;
 
 	return (
 		<ClinicCardListContainer>
@@ -119,7 +127,12 @@ export const ClinicListCard = (props: any) => {
 						</p>
 					</div>
 				</div>
-				<div className="addition-data">
+				<AdditionData
+					className="addition-data"
+					isNoticeCard={
+						isCardWithNotice && pathname.includes("search")
+					}
+				>
 					<div className="left">
 						<div className="address">{address}</div>
 						<div className="work-time">{getTime(workHours)}</div>
@@ -130,8 +143,15 @@ export const ClinicListCard = (props: any) => {
 						</div>
 						<div className="payment">{payments.join(", ")}</div>
 					</div>
-				</div>
+				</AdditionData>
+				{isCardWithNotice && isLogin && pathname.includes("search") && (
+					<div className="auth-notice-block">
+						<span>{getRandomNumber(3, 5)}&nbsp;</span>
+						{t("clinicSearchPage.registerNoticeCard")}
+					</div>
+				)}
 			</div>
+
 			<div className="buttons-block">
 				{!isSingleClinic && (
 					<Button

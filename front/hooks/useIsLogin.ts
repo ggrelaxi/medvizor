@@ -11,7 +11,7 @@ export const useIsLogin = () => {
 	const logOut = () => {
 		setIsLogin(false);
 		window.localStorage.setItem("user", "");
-		Router.push({ pathname: "/" });
+		Router.reload();
 	};
 
 	return [isLogin, logOut];

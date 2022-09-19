@@ -226,6 +226,7 @@ export const DoctorSearch = () => {
 										doctorId={id}
 										clinicAddress={clinicAddress}
 										clinicName={clinicName}
+										key={`${name}-${id}`}
 									/>
 									{(index + 1) % 2 === 0 && !isLogin && (
 										<RecommendedBlock

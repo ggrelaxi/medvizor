@@ -1,9 +1,14 @@
-import { SingleDoctorContainer } from "./single-doctor-search-card.styles";
+import {
+	SingleDoctorContainer,
+	AdditionData,
+} from "./single-doctor-search-card.styles";
 import { Button } from "../ui-kit/button";
 import { useTranslation } from "next-i18next";
 import Router, { useRouter } from "next/router";
 import { useState } from "react";
 import { AskForm } from "../askForm";
+import { getRandomNumber } from "../../utils/random-range";
+import { useIsLogin } from "../../hooks/useIsLogin";
 
 export const SingleDoctorSearchCard = (props: any) => {
 	const { t } = useTranslation();
@@ -20,6 +25,7 @@ export const SingleDoctorSearchCard = (props: any) => {
 		clinicName,
 	} = props;
 	const [askFormIsActive, setAskFormIsActive] = useState(false);
+	const [isLogin] = useIsLogin();
 
 	const goToClickHandler = (id: number) => {
 		Router.push({
@@ -27,6 +33,13 @@ export const SingleDoctorSearchCard = (props: any) => {
 		});
 	};
 
+	const goToAppointmentPage = (id: number) => {
+		Router.push({
+			pathname: `/doctor/appointment/${id}`,
+		});
+	};
+
+	const isCardWithNotice = (Number(doctorId) + 1) % 2 === 0;
 	return (
 		<SingleDoctorContainer>
 			<div className="content-block">
@@ -76,21 +89,29 @@ export const SingleDoctorSearchCard = (props: any) => {
 						<div className="doctor-price">from ${price}</div>
 					</div>
 				</div>
-				<div
-					className={`additional-data ${
-						isSinglePage && "single-additional-data"
-					}`}
+				<AdditionData
+					isNoticeCard={
+						isCardWithNotice && pathname.includes("search")
+					}
+					className={`${isSinglePage && "single-additional-data"}`}
 				>
 					<div className="clinic-address">{clinicAddress}</div>
 					<div className="clinic-name">{clinicName}</div>
-				</div>
+				</AdditionData>
+
+				{isCardWithNotice && isLogin && pathname.includes("search") && (
+					<div className="auth-notice-block">
+						<span>{getRandomNumber(3, 5)}&nbsp;</span>
+						{t("doctorSearchPage.registerNoticeCard")}
+					</div>
+				)}
 			</div>
 			<div className="buttons-block">
 				<Button
 					text={t("doctorSearchPage.bookAppointment")}
 					size="s"
 					type="black"
-					onClick={() => {}}
+					onClick={() => goToAppointmentPage(doctorId)}
 					width="276"
 				/>
 				<Button

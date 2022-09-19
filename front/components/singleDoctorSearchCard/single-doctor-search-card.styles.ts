@@ -104,32 +104,19 @@ export const SingleDoctorContainer = styled.div`
 			}
 		}
 
-		.additional-data {
-			.clinic-address {
-				font-size: 18px;
-				line-height: 24px;
-				color: #1f2124;
-				position: relative;
-				padding-left: 35px;
-				margin-bottom: 4px;
+		.auth-notice-block {
+			background: #e84a22;
+			color: #fff;
+			font-size: 16px;
+			line-height: 20px;
+			padding: 12px 18px;
+			border-radius: 12px;
+			display: inline-block;
 
-				&:before {
-					position: absolute;
-					content: url(/images/icons/pick-icon.svg);
-					top: 0;
-					left: 0;
-				}
-			}
-
-			.clinic-name {
-				padding-left: 35px;
-				font-size: 16px;
-				line-height: 20px;
-				color: #626466;
-			}
-
-			&.single-additional-data {
-				padding-left: 296px;
+			span {
+				font-size: 24px;
+				line-height: 32px;
+				font-weight: 500;
 			}
 		}
 	}
@@ -141,5 +128,38 @@ export const SingleDoctorContainer = styled.div`
 			margin-bottom: 10px;
 			max-height: 48px;
 		}
+	}
+`;
+
+export const AdditionData = styled("div")<{
+	isNoticeCard: boolean;
+}>`
+	margin-bottom: ${(props: any) => (props.isNoticeCard ? "32px" : "4px")};
+
+	.clinic-address {
+		font-size: 18px;
+		line-height: 24px;
+		color: #1f2124;
+		position: relative;
+		padding-left: 35px;
+		margin-bottom: 4px;
+
+		&:before {
+			position: absolute;
+			content: url(/images/icons/pick-icon.svg);
+			top: 0;
+			left: 0;
+		}
+	}
+
+	.clinic-name {
+		padding-left: 35px;
+		font-size: 16px;
+		line-height: 20px;
+		color: #626466;
+	}
+
+	&.single-additional-data {
+		padding-left: 296px;
 	}
 `;

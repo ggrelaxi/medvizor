@@ -1,17 +1,17 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { Doctor } from "../../components/pages/doctor";
-import { doctorServises } from "../../api/doctors-servises";
-import { LocaleTypes } from "../../types/locale-types";
+import { DoctorAppointment } from "../../../components/pages/doctorAppointment";
+import { doctorServises } from "../../../api/doctors-servises";
+import { LocaleTypes } from "../../../types/locale-types";
 
-const DoctorPage: NextPage = (props: any) => {
+const DoctorAppointmentPage: NextPage = (props: any) => {
 	return (
 		<>
 			<Head>
-				<title>Doctor</title>
+				<title>Doctor Appointment</title>
 			</Head>
-			<Doctor doctor={props.doctor} />
+			<DoctorAppointment doctor={props.doctor} />
 		</>
 	);
 };
@@ -33,4 +33,4 @@ export const getServerSideProps = async ({
 	};
 };
 
-export default DoctorPage;
+export default DoctorAppointmentPage;

@@ -9,7 +9,9 @@ export const BackToResult = () => {
 
 	return (
 		<BackToResultContainer onClick={() => router.back()}>
-			{t("common.backToResult")}
+			{router.pathname.includes("appointment")
+				? t("doctorAppointmentPage.backToResult")
+				: t("common.backToResult")}
 		</BackToResultContainer>
 	);
 };

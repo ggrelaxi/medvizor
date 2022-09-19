@@ -6,10 +6,13 @@ import { Layout } from "../layouts/index-styles";
 import Router from "next/router";
 import { useState, useEffect } from "react";
 import { Loader } from "../components/loader";
+import { useIsCookieAccept } from "../hooks/useIsCookieAccept";
+import { CookieNotice } from "../components/cookieNotice";
 
 function MyApp({ Component, pageProps }: AppProps) {
 	const [loading, setLoading] = useState(false);
-
+	const [isCookieAccept] = useIsCookieAccept();
+	const [isCookieNoticeActive, setIsCookieNoticeActive] = useState(true);
 	useEffect(() => {
 		const start = () => {
 			console.log("start");
@@ -28,6 +31,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 			Router.events.off("routeChangeError", end);
 		};
 	}, []);
+
 	return (
 		<>
 			{loading ? (
@@ -39,6 +43,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 						<Component {...pageProps} />
 					</Main>
 					<Footer />
+					{!isCookieAccept && isCookieNoticeActive && (
+						<CookieNotice
+							close={() => setIsCookieNoticeActive(false)}
+						/>
+					)}
 				</Layout>
 			)}
 		</>

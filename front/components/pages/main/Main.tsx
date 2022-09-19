@@ -14,9 +14,9 @@ export const Main = () => {
 				<MainSearch />
 			</div>
 			<h2>{t("mainPage.contentTitle")}</h2>
-			<p className="main-description">
+			<div className="main-description">
 				{t("mainPage.contentDescription")}
-			</p>
+			</div>
 			<div className="tab-headers">
 				<TabHead
 					className={`${activeTab === 0 && "active-tab"}`}

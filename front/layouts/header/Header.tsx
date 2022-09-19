@@ -39,7 +39,9 @@ export const Header = () => {
 			</div>
 			<div>
 				{isLogin && (
-					<div className="log-out" onClick={() => logOut()}>{t("header.logOut")}</div>
+					<div className="log-out" onClick={() => logOut()}>
+						{t("header.logOut")}
+					</div>
 				)}
 				{!isLogin && (
 					<Link href="/registration">
@@ -51,7 +53,7 @@ export const Header = () => {
 	);
 };
 
-export const getStaticProps = async ({ locale }) => ({
+export const getStaticProps = async ({ locale }: { locale: string }) => ({
 	props: {
 		...(await serverSideTranslations(locale, ["common"])),
 	},

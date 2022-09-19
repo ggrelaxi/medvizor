@@ -41,7 +41,8 @@
 		"chooseDoctor": "Choose a doctor",
 		"callClinic": "Call the clinic",
 		"askClinic": "Ask the clinic",
-		"registerNoticeHeader": "Find out which clinic is recommended by your social circle"
+		"registerNoticeHeader": "Find out which clinic is recommended by your social circle",
+		"registerNoticeCard": "people from your social circle visited this doctor"
 	},
 	"askForm": {
 		"doctorHeader": "Ask the doctor a question",
@@ -107,7 +108,8 @@
 		"callDoctor": "Call the doctor",
 		"askDoctor": "Ask the doctor",
 		"doctorLanguages": "English, Spanish",
-		"registerNoticeHeader": "Find out which doctor is recommended by your social circle"
+		"registerNoticeHeader": "Find out which doctor is recommended by your social circle",
+		"registerNoticeCard": "people from your social circle visited this doctor"
 	},
 	"doctorSinglePage": {
 		"about": "About",
@@ -180,5 +182,43 @@
 		"phoneError": "Phone number is required",
 		"buttonText": "Sign up",
 		"description": "By continuing, you agree to Medadviser's <span>Terms of Service</span> and acknowledge Medadviser's <span>Privacy Policy</span>"
+	},
+	"doctorAppointmentPage": {
+		"backToResult": "To the doctor",
+		"onlineBooking": "Online Booking",
+		"availableDate": "Next available date",
+		"nameLabel": "First and Last Name",
+		"namePlaceholder": "Put your personal data",
+		"phoneLabel": "Phone number",
+		"phonePlaceholder": "Enter your phone",
+		"typeLabel": "type of visit",
+		"typePersor": "In person",
+		"typeOnline": "Online",
+		"typeInHome": "In home",
+		"dateVisit": "Date for visit",
+		"bookButton": "Book online",
+		"bottomDescription": "We will contact you to confirm your appointment",
+		"urgentAppointment": "Urgent appointment",
+		"urgentDescription": "In case of an urgent appointment fill in here",
+		"urgentDate": "When you want to visit the doctor?",
+		"urgentDateToday": "Today",
+		"urgentDateDay": "Next 2-3 day",
+		"urgentDateWeek": "Next 1-2 week",
+		"urgentQuestionLabel": "Description of a question",
+		"urgentQuestionPlaceholder": "Put your question",
+		"urgentButton": "Submit",
+		"askHeader": "Ask the doctor a question",
+		"askQuestionLabel": "Description of a question",
+		"askQuestionPlaceholder": "Put your question",
+		"askButton": "Submit"
+	},
+	"successForm": {
+		"header": "Thank you!",
+		"text": "We are extremely sorry. Website is currently in a beta testing and we are now struggling with hundreds of appointments at a time. It is possible that your request may take longer than usual, but we will get back to you as soon as possible.",
+		"button": "You are welcome :)"
+	},
+	"cookieForm": {
+		"text": "Need accept cookie",
+		"button": "Accept"
 	}
 }

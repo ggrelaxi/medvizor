@@ -69,7 +69,7 @@ export const Doctor = (props: any) => {
 				<div className="left">
 					<div className="education">
 						<h3>{t("doctorSinglePage.education")}</h3>
-						<p>{education}</p>
+						<div>{education}</div>
 					</div>
 					<div className="license">
 						<h3>{t("doctorSinglePage.license")}</h3>
@@ -104,11 +104,12 @@ export const Doctor = (props: any) => {
 					{t("doctorSinglePage.reviewsDescription")}
 				</p>
 				<div className="reviews-list">
-					{reviews.map((review: any) => (
+					{reviews.map((review: any, index: number) => (
 						<SingleReview
 							name={review.patient_name}
 							tone={review.tone}
 							review={review.review}
+							key={`${name}-${index}`}
 						/>
 					))}
 				</div>
