@@ -56,7 +56,9 @@ export const getDoctors = (request, response) => {
 };
 
 export const getSingleDoctor = (request, response) => {
-	const { locale, id } = request.body;
+	let { locale, id } = request.body;
+	id = Number(id);
+
 	let doctors;
 
 	try {
@@ -115,12 +117,17 @@ export const getSingleDoctor = (request, response) => {
 	}
 
 	const singleDoctor = doctors.find((item) => item.id === id);
-	const currentClinic = clinics.find((item) => item.id === singleDoctor.id);
+
+	const currentClinic = clinics.find(
+		(item) => item.id === singleDoctor.clinic
+	);
 	const currentReviews = reviews.filter((item) => item.doctor_id === id);
-	singleDoctor["clinicName"] = currentClinic.name;
+
+	singleDoctor["clinic"] = currentClinic.id;
 	singleDoctor["clinicAddress"] = currentClinic.address;
+	singleDoctor["clinicName"] = currentClinic.name;
 	singleDoctor["insurance"] = currentClinic.insurance;
 	singleDoctor["reviews"] = currentReviews;
-
+	console.log(singleDoctor);
 	response.send(JSON.stringify(singleDoctor));
 };

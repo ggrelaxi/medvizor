@@ -45,7 +45,8 @@ export const getClinics = (request, response) => {
 };
 
 export const getSingleClinic = (request, response) => {
-	const { locale, id } = request.body;
+	let { locale, id } = request.body;
+	id = Number(id);
 	let clinics;
 
 	try {
@@ -66,6 +67,6 @@ export const getSingleClinic = (request, response) => {
 	}
 
 	const singleClinic = clinics.find((item) => item.id === id);
-
+	console.log(singleClinic);
 	response.send(JSON.stringify(singleClinic));
 };
