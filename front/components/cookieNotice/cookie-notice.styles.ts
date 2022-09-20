@@ -26,5 +26,9 @@ export const CookieNoticeContainer = styled.div`
 		font-size: 24px;
 		line-height: 32px;
 		color: #1f2124;
+
+		.privacy-link {
+			color: #e84a22;
+		}
 	}
 `;

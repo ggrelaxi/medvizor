@@ -12,7 +12,10 @@ import { CookieNotice } from "../components/cookieNotice";
 function MyApp({ Component, pageProps }: AppProps) {
 	const [loading, setLoading] = useState(false);
 	const [isCookieAccept] = useIsCookieAccept();
-	const [isCookieNoticeActive, setIsCookieNoticeActive] = useState(true);
+	const [isCookieNoticeActive, setIsCookieNoticeActive] = useState<
+		boolean | null
+	>(null);
+
 	useEffect(() => {
 		const start = () => {
 			console.log("start");
@@ -32,6 +35,12 @@ function MyApp({ Component, pageProps }: AppProps) {
 		};
 	}, []);
 
+	useEffect(() => {
+		if (typeof window !== undefined) {
+			setIsCookieNoticeActive(true);
+		}
+	}, []);
+
 	return (
 		<>
 			{loading ? (
@@ -43,11 +52,13 @@ function MyApp({ Component, pageProps }: AppProps) {
 						<Component {...pageProps} />
 					</Main>
 					<Footer />
-					{!isCookieAccept && isCookieNoticeActive && (
-						<CookieNotice
-							close={() => setIsCookieNoticeActive(false)}
-						/>
-					)}
+					<div>
+						{!isCookieAccept && isCookieNoticeActive && (
+							<CookieNotice
+								close={() => setIsCookieNoticeActive(false)}
+							/>
+						)}
+					</div>
 				</Layout>
 			)}
 		</>

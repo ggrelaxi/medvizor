@@ -26,7 +26,7 @@ export const SingleDoctorSearchCard = (props: any) => {
 	} = props;
 	const [askFormIsActive, setAskFormIsActive] = useState(false);
 	const [isLogin] = useIsLogin();
-
+	console.log(doctorId);
 	const goToClickHandler = (id: number) => {
 		Router.push({
 			pathname: `/doctor/${id}`,

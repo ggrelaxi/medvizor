@@ -125,7 +125,7 @@ export const DoctorSearch = () => {
 			.getDoctorsList(language as LocaleTypes, activeFilters as any)
 			.then(({ data }) => setDoctors(data))
 			.finally(() => {
-				setIsLoading(false);
+				setTimeout(() => setIsLoading(false), 1000);
 			});
 	};
 
@@ -166,7 +166,7 @@ export const DoctorSearch = () => {
 						setDoctors(data);
 					});
 			})
-			.finally(() => setIsLoading(false));
+			.finally(() => setTimeout(() => setIsLoading(false), 1000));
 	}, []);
 
 	return (
@@ -216,7 +216,7 @@ export const DoctorSearch = () => {
 							} = doctor;
 
 							return (
-								<>
+								<div key={`${name}-${id}`}>
 									<SingleDoctorSearchCard
 										logoUrl={logo_url}
 										name={name}
@@ -226,16 +226,16 @@ export const DoctorSearch = () => {
 										doctorId={id}
 										clinicAddress={clinicAddress}
 										clinicName={clinicName}
-										key={`${name}-${id}`}
 									/>
 									{(index + 1) % 2 === 0 && !isLogin && (
 										<RecommendedBlock
 											text={t(
 												"doctorSearchPage.registerNoticeHeader"
 											)}
+											key={`${clinicName}-${id}`}
 										/>
 									)}
-								</>
+								</div>
 							);
 						})}
 					</>

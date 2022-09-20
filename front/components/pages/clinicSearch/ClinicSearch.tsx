@@ -133,7 +133,7 @@ export const ClinicSearch = () => {
 							id,
 						} = clinic;
 						return (
-							<>
+							<div key={`${name}-${id}`}>
 								<ClinicListCard
 									logoUrl={logo_url}
 									name={name}
@@ -143,16 +143,16 @@ export const ClinicSearch = () => {
 									payments={payment_method}
 									workHours={work_hours}
 									clinicId={id}
-									key={`${name}-${id}`}
 								/>
 								{(index + 1) % 2 === 0 && !isLogin && (
 									<RecommendedBlock
 										text={t(
 											"clinicSearchPage.registerNoticeHeader"
 										)}
+										key={`${payment_method}-${id}`}
 									/>
 								)}
-							</>
+							</div>
 						);
 					})}
 			</div>

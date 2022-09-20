@@ -1,22 +1,21 @@
-import Router from "next/router";
 import { useState } from "react";
 
 type ReturnType = [boolean, () => void];
 
 export const useIsCookieAccept = (): ReturnType => {
-	let cookieAccept;
-	if (typeof window !== "undefined") {
-		cookieAccept = window.localStorage.getItem("cookieAccept");
-	}
 	const [isCookieAccept, setIsCookieAccept] = useState(
-		cookieAccept ? true : false
+		typeof window !== "undefined" &&
+			window.localStorage.getItem("cookieAccept")
+			? true
+			: false
 	);
 
 	const acceptCookie = () => {
 		setIsCookieAccept(true);
-		window.localStorage.setItem("cookieAccept", "true");
-		window.localStorage.setItem("ally-supports-cache", "");
-		// Router.reload();
+		if (typeof window !== "undefined") {
+			window.localStorage.setItem("cookieAccept", "true");
+			window.localStorage.setItem("ally-supports-cache", "");
+		}
 	};
 
 	return [isCookieAccept, acceptCookie];
