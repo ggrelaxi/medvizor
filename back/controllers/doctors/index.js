@@ -39,7 +39,20 @@ export const getDoctors = (request, response) => {
 		response.end();
 	}
 
-	const filteredDoctors = doctors;
+	const filteredDoctors = Object.keys(filters).reduce((acc, current) => {
+		// поиск по id клиники
+		if (current === "clinicId" && filters[current] !== "") {
+			return acc.filter(
+				(clinic) => clinic.id === Number(filters[current])
+			);
+		}
+		// поиск докторов по id
+		if (current === "doctorsId" && filters[current] !== "") {
+			const doctorsIds = filters[current].split(",").map(Number);
+			return acc.filter((doctor) => doctorsIds.includes(doctor.id));
+		}
+		return acc;
+	}, doctors);
 
 	for (let i = 0; i < filteredDoctors.length; i++) {
 		const currentDoctor = filteredDoctors[i];
@@ -109,7 +122,7 @@ export const getSingleDoctor = (request, response) => {
 			)}`,
 			"utf-8"
 		);
-		reviews = JSON.parse(data);
+		reviews = JSON.parse(data).filter((review) => review.doctor_id === id);
 	} catch (error) {
 		response.statusCode = 400;
 		response.send("Cannot get clinic");
