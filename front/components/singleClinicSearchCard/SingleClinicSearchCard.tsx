@@ -84,6 +84,7 @@ export const ClinicListCard = (props: any) => {
 		workHours,
 		clinicId,
 		isSingleClinic = false,
+		doctors,
 	} = props;
 	const [askFormIsActive, setAskFormIsActive] = useState(false);
 	const [isLogin] = useIsLogin();

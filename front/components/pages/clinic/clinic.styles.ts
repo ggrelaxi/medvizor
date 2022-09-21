@@ -60,5 +60,8 @@ export const ClinicContainer = styled.div`
 	}
 
 	.doctors-header {
+		h3 {
+			margin-bottom: 16px;
+		}
 	}
 `;

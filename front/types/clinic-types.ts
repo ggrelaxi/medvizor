@@ -1,4 +1,5 @@
 export interface ClinicFilters {
-    speciality: string;
-    insurance: string;
+	speciality: string;
+	insurance: string;
+	clinicDoctors: string;
 }

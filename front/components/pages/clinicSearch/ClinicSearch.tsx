@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import { ClinicSearchFilters } from "../../clinicSearchFilters";
 import { ClinicSearchContainer } from "./clinic-search.styles";
@@ -15,7 +15,11 @@ import { useIsLogin } from "../../../hooks/useIsLogin";
 export const ClinicSearch = () => {
 	const router = useRouter();
 	const {
-		query: { speciality: querySpeciality, insurance: queryInsurance },
+		query: {
+			speciality: querySpeciality,
+			insurance: queryInsurance,
+			clinicDoctors,
+		},
 	} = router;
 	const {
 		t,
@@ -25,14 +29,17 @@ export const ClinicSearch = () => {
 	const [specialityOptions, setSpecialityOptions] = useState([]);
 	const [insuranceOptions, setInsuranceOptions] = useState([]);
 	const [clinicFilters, setClinicFilters] = useState<ClinicFilters>({
-		speciality: querySpeciality ? (querySpeciality as string) : "",
-		insurance: queryInsurance ? (queryInsurance as string) : "",
+		speciality: "",
+		insurance: "",
+		clinicDoctors: "",
 	});
+
 	const [clinics, setClinics] = useState([]);
 	const [listCountClinic, setListCountClinic] = useState(clinics.length);
 	const [listClinicName, setListClinicName] = useState(
 		querySpeciality ? (querySpeciality as string) : ""
 	);
+	const filtersRef = useRef(false);
 	const [isLogin] = useIsLogin();
 
 	const searchClinicHandler = () => {
@@ -81,23 +88,41 @@ export const ClinicSearch = () => {
 				}));
 				setInsuranceOptions(insuranceOptionsList);
 			});
-
-		Promise.all([getSpecialitiFilters, getInsuranceFilters])
-			.then(() => {
-				setClinicFilters((prevState) => ({
-					...prevState,
-					speciality: querySpeciality as string,
-				}));
-			})
-			.then(() => {
-				clinicServises
-					.getClinicsList(language as LocaleTypes, clinicFilters)
-					.then(({ data }) => {
-						setClinics(data);
-					});
-			})
-			.finally(() => setIsLoading(false));
+		Promise.all([getSpecialitiFilters, getInsuranceFilters]).finally(() =>
+			setIsLoading(false)
+		);
 	}, []);
+
+	useEffect(() => {
+		if (router.isReady && filtersRef.current === false) {
+			const { speciality } = router.query;
+			setClinicFilters((prevState) => ({
+				...prevState,
+				speciality: speciality ? (speciality as string) : "",
+				insurance: queryInsurance ? (queryInsurance as string) : "",
+				clinicDoctors: clinicDoctors ? (clinicDoctors as string) : "",
+			}));
+			filtersRef.current = true;
+		}
+	}, [router.isReady]);
+
+	useEffect(() => {
+		if (router.isReady && filtersRef.current) {
+			filtersRef.current = false;
+			setIsLoading(true);
+			const { speciality, insurance } = router.query;
+			clinicServises
+				.getClinicsList(language as LocaleTypes, {
+					speciality: speciality as string,
+					insurance: insurance as string,
+					clinicDoctors: "",
+				})
+				.then(({ data }) => {
+					setClinics(data);
+				})
+				.finally(() => setIsLoading(false));
+		}
+	}, [filtersRef.current]);
 
 	useEffect(() => {
 		setListClinicName(clinicFilters.speciality);
@@ -131,6 +156,7 @@ export const ClinicSearch = () => {
 							payment_method,
 							work_hours,
 							id,
+							doctors,
 						} = clinic;
 						return (
 							<div key={`${name}-${id}`}>
@@ -143,6 +169,7 @@ export const ClinicSearch = () => {
 									payments={payment_method}
 									workHours={work_hours}
 									clinicId={id}
+									doctorsId={doctors}
 								/>
 								{(index + 1) % 2 === 0 && !isLogin && (
 									<RecommendedBlock

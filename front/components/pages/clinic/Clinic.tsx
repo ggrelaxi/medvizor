@@ -1,9 +1,14 @@
 import { LocaleTypes } from "../../../types/locale-types";
+import { useEffect, useState } from "react";
 import { ClinicContainer } from "./clinic.styles";
 import { clinicServises } from "../../../api/clinics-servises";
 import { BackToResult } from "../../BackToResult/";
 import { ClinicListCard } from "../../singleClinicSearchCard";
 import { useTranslation } from "next-i18next";
+import { Loader } from "../../loader";
+import { doctorServises } from "../../../api/doctors-servises";
+import { stringify } from "querystring";
+import { BestDoctorCard } from "../../bestDoctorCard";
 
 export const Clinic = ({ clinic }: { clinic: any }) => {
 	const {
@@ -11,14 +16,44 @@ export const Clinic = ({ clinic }: { clinic: any }) => {
 		name,
 		deseases,
 		address,
-		language,
+		language: currentLanguage,
 		payment_method,
 		work_hours,
 		id,
 		insurance,
+		doctors,
 	} = clinic;
+	console.log(clinic);
+	const {
+		t,
+		i18n: { language },
+	} = useTranslation();
 
-	const { t } = useTranslation();
+	const [bestDoctors, setBestDoctors] = useState([]);
+	const [isLoading, setIsLoading] = useState(false);
+
+	useEffect(() => {
+		setIsLoading(true);
+		doctorServises
+			.getDoctorsList(language as LocaleTypes, {
+				speciality: "",
+				price: [],
+				visitDate: "",
+				visitType: "",
+				language: "",
+				onlineBooking: "",
+				deseases: "",
+				gender: "",
+				association: "",
+				clinicId: "",
+				doctorsId: doctors.map(String).join(","),
+			})
+			.then(({ data }) => {
+				setBestDoctors(data);
+			})
+			.finally(() => setIsLoading(false));
+	}, []);
+
 	return (
 		<ClinicContainer>
 			<div className="go-back">
@@ -30,7 +65,7 @@ export const Clinic = ({ clinic }: { clinic: any }) => {
 					name={name}
 					deseases={deseases}
 					address={address}
-					languages={language}
+					languages={currentLanguage}
 					payments={payment_method}
 					workHours={work_hours}
 					clinicId={id}
@@ -63,7 +98,31 @@ export const Clinic = ({ clinic }: { clinic: any }) => {
 			</div>
 			<div className="doctors-header">
 				<h3>{t("singleClinicPage.doctorListHeader")}</h3>
+				{bestDoctors.map((doctor: any) => {
+					const {
+						id,
+						name,
+						deseases,
+						language,
+						practice,
+						price,
+						logo_url,
+					} = doctor;
+
+					return (
+						<BestDoctorCard
+							id={id}
+							name={name}
+							deseases={deseases}
+							language={language}
+							practice={practice}
+							price={price}
+							logoUrl={logo_url}
+						/>
+					);
+				})}
 			</div>
+			{isLoading && <Loader />}
 		</ClinicContainer>
 	);
 };

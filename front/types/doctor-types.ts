@@ -8,4 +8,6 @@ export interface DoctorFilters {
 	deseases: string;
 	gender: string;
 	association: string;
+	clinicId: string;
+	doctorsId: string;
 }
